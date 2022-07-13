@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('dog', {
     id: {
       type: DataTypes.UUID, //--> el tipo UUID se usa para crear una columna que almacena identificadores universales únicos.
-      defaultValue: DataTypes.UUIDV4, //--> Sequelize proporciona UUIDV1 y UUIDV4 como el valor predeterminado para las columnas de tipo UUID que puede usar al definir el modelo.
+      // defaultValue: DataTypes.UUIDV4, //--> Sequelize proporciona UUIDV1 y UUIDV4 como el valor predeterminado para las columnas de tipo UUID que puede usar al definir el modelo.
       allowNull: false, //--> no te permito que este vacio, es un campo requerido.
       primaryKey: true,
     },
@@ -17,21 +17,27 @@ module.exports = (sequelize) => {
     },
     weight: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     height: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     bred_for: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     life_span: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     origin: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(25000),
+      allowNull: true,
     }
   });
 };

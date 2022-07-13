@@ -1,154 +1,154 @@
-const appDogs = require("express").Router();
-const axios = require("axios");
-const { API_KEY } = process.env;
-const { Dog, Temperament } = require("../db.js");
-const { Sequelize } = require("sequelize");
-const { Op } = require("sequelize");
+// const appDogs = require("express").Router();
+// const axios = require("axios");
+// const { API_KEY } = process.env;
+// const { Dog, Temperament } = require("../db.js");
+// const { Sequelize } = require("sequelize");
+// const { Op } = require("sequelize");
 
-function repairAPIBugs(dogs) {
-  dogs.forEach((breed) => {
-    if (!breed.temperament)
-      breed.temperament = "Intelligent, Charming, Sociable"; // Hay razas sin temperamentos
-    if (!breed.image) breed.image = {};
-    if (!breed.image.url)
-      breed.image.url =
-        "https://eventovirtual.co/wp-content/themes/appon/assets/images/no-image/No-Image-Found-400x264.png";
+// function repairAPIBugs(dogs) {
+//   dogs.forEach((breed) => {
+//     if (!breed.temperament)
+//       breed.temperament = "Intelligent, Charming, Sociable"; // Hay razas sin temperamentos
+//     if (!breed.image) breed.image = {};
+//     if (!breed.image.url)
+//       breed.image.url =
+//         "https://eventovirtual.co/wp-content/themes/appon/assets/images/no-image/No-Image-Found-400x264.png";
 
-    let splitedWeight = breed.weight.imperial.split(" - ");
-    if (splitedWeight.length < 2) {
-      if (splitedWeight[0].includes("–"))
-        breed.weight.imperial = breed.weight.imperial.replace("–", "-");
-      else breed.weight.imperial = `${splitedWeight[0]} - ${splitedWeight[0]}`;
-    } else {
-      if (isNaN(parseInt(splitedWeight[0])))
-        breed.weight.imperial = `${splitedWeight[1]} - ${splitedWeight[1]}`;
-      if (isNaN(parseInt(splitedWeight[1])))
-        breed.weight.imperial = `${splitedWeight[0]} - ${splitedWeight[0]}`;
-    }
-  });
-  return dogs;
-}
+//     let splitedWeight = breed.weight.imperial.split(" - ");
+//     if (splitedWeight.length < 2) {
+//       if (splitedWeight[0].includes("–"))
+//         breed.weight.imperial = breed.weight.imperial.replace("–", "-");
+//       else breed.weight.imperial = `${splitedWeight[0]} - ${splitedWeight[0]}`;
+//     } else {
+//       if (isNaN(parseInt(splitedWeight[0])))
+//         breed.weight.imperial = `${splitedWeight[1]} - ${splitedWeight[1]}`;
+//       if (isNaN(parseInt(splitedWeight[1])))
+//         breed.weight.imperial = `${splitedWeight[0]} - ${splitedWeight[0]}`;
+//     }
+//   });
+//   return dogs;
+// }
 
-function getAPIDogs(name) {
-  return name
-    ? axios.get(
-        `https://api.thedogapi.com/v1/breeds/search?q=${name}&api_key=${API_KEY}`
-      )
-    : axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
-}
+// function getAPIDogs(name) {
+//   return name
+//     ? axios.get(
+//         `https://api.thedogapi.com/v1/breeds/search?q=${name}&api_key=${API_KEY}`
+//       )
+//     : axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+// }
 
-function getDBDogDetails(id) {
-  return Dog.findAll({
-      where: { id },
-    include: [{ model: Temperament, attributes: ["name"] }],
-    through: {
-      attributes: [],
-    },
-  });
-}
+// function getDBDogDetails(id) {
+//   return Dog.findAll({
+//       where: { id },
+//     include: [{ model: Temperament, attributes: ["name"] }],
+//     through: {
+//       attributes: [],
+//     },
+//   });
+// }
 
-function getDBDogs(name) { // Dogs con solo atributos necesarios
-  let where = name !== undefined ? { name: { [Op.like]: `%${name}%` } } : {};
-  return Dog.findAll({
-    where,
-    attributes: ["id", "name", "weight", "image"],
-    include: [{ model: Temperament, attributes: ["name"] }],
-    through: {
-      attributes: [],
-    },
-  });
-}
+// function getDBDogs(name) { // Dogs con solo atributos necesarios
+//   let where = name !== undefined ? { name: { [Op.like]: `%${name}%` } } : {};
+//   return Dog.findAll({
+//     where,
+//     attributes: ["id", "name", "weight", "image"],
+//     include: [{ model: Temperament, attributes: ["name"] }],
+//     through: {
+//       attributes: [],
+//     },
+//   });
+// }
 
-async function getDogs(name) {
-  try {
-    let APIDogs = await getAPIDogs(name);
-    APIDogs = APIDogs.data;
-    APIDogs = repairAPIBugs(APIDogs);
-    APIDogs = APIDogs.map((d) => {
-      return {
-        name: d.name,
-        weight: d.weight,
-        image: d.image,
-        temperament: d.temperament,
-        id: d.id,
-    };
-});
-let DBDogs = await getDBDogs(name);
-let result = [ ...APIDogs, ...DBDogs ];
-return result;
-  } catch (e) {
-    console.log(e);
-    return;
-  }
-}
+// async function getDogs(name) {
+//   try {
+//     let APIDogs = await getAPIDogs(name);
+//     APIDogs = APIDogs.data;
+//     APIDogs = repairAPIBugs(APIDogs);
+//     APIDogs = APIDogs.map((d) => {
+//       return {
+//         name: d.name,
+//         weight: d.weight,
+//         image: d.image,
+//         temperament: d.temperament,
+//         id: d.id,
+//     };
+// });
+// let DBDogs = await getDBDogs(name);
+// let result = [ ...APIDogs, ...DBDogs ];
+// return result;
+//   } catch (e) {
+//     console.log(e);
+//     return;
+//   }
+// }
 
-appDogs.get("/", async (req, res) => {
-  const { name } = req.query; // Extraigo el name pasado por query
-  //console.log(name)
-  let result = await getDogs(name);
-  result ? res.status(200).json(result) : res.status(400);
-});
+// appDogs.get("/", async (req, res) => {
+//   const { name } = req.query; // Extraigo el name pasado por query
+//   //console.log(name)
+//   let result = await getDogs(name);
+//   result ? res.status(200).json(result) : res.status(400);
+// });
 
-appDogs.get("/:idRaza", async (req, res) => {
-  const { idRaza } = req.params;
-  let DBDogs;
-  try {
-      if (idRaza.length > 4) DBDogs = await getDBDogDetails(idRaza);
-      if (DBDogs && DBDogs.length) return res.send(DBDogs[0]);
-      else {
-          let APIDogs = await getAPIDogs(undefined);
-          APIDogs = APIDogs.data;
-          //console.log(APIDogs)
-          const dogFound = APIDogs.find((d) => d.id == idRaza);
-          dogFound ? res.send(dogFound) : res.status(405);
-        }
-    } catch (e) {
-        console.log(e);
-    }
-});
+// appDogs.get("/:idRaza", async (req, res) => {
+//   const { idRaza } = req.params;
+//   let DBDogs;
+//   try {
+//       if (idRaza.length > 4) DBDogs = await getDBDogDetails(idRaza);
+//       if (DBDogs && DBDogs.length) return res.send(DBDogs[0]);
+//       else {
+//           let APIDogs = await getAPIDogs(undefined);
+//           APIDogs = APIDogs.data;
+//           //console.log(APIDogs)
+//           const dogFound = APIDogs.find((d) => d.id == idRaza);
+//           dogFound ? res.send(dogFound) : res.status(405);
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+// });
 
-function capitalize(name) {
-  return name ? name[0].toUpperCase() + name.slice(1, name.length) : "";
-}
+// function capitalize(name) {
+//   return name ? name[0].toUpperCase() + name.slice(1, name.length) : "";
+// }
 
-appDogs.post("/create", async (req, res) => {
-  let { breed, weight, height, life_span, temps, image, bred_for, origin } =
-    req.body;
-    //console.log(temps)
-    let name = capitalize(breed)
-    try {
-        const [dogs, created] = await Dog.findOrCreate({
-            where: {
-                name
-            },
-            defaults: {
-                name,
-                weight,
-                height,
-                life_span,
-                image,
-                bred_for,
-                origin,
-            },
-        });
-        console.log(dogs)
-    let temperamentsIDs = temps.map((t) => parseInt(t));
-    console.log(temperamentsIDs)
-    console.log(temps)
-    await dogs.addTemperaments(temperamentsIDs);
+// appDogs.post("/create", async (req, res) => {
+//   let { breed, weight, height, life_span, temps, image, bred_for, origin } =
+//     req.body;
+//     //console.log(temps)
+//     let name = capitalize(breed)
+//     try {
+//         const [dogs, created] = await Dog.findOrCreate({
+//             where: {
+//                 name
+//             },
+//             defaults: {
+//                 name,
+//                 weight,
+//                 height,
+//                 life_span,
+//                 image,
+//                 bred_for,
+//                 origin,
+//             },
+//         });
+//         console.log(dogs)
+//     let temperamentsIDs = temps.map((t) => parseInt(t));
+//     console.log(temperamentsIDs)
+//     console.log(temps)
+//     await dogs.addTemperaments(temperamentsIDs);
     
-    const dogCreated = await Dog.findAll({
-        where: {
-            name
-        },
-        include: Temperament
-    });
-    //console.log(dogCreated[0].dataValues.temperaments)
-    res.send({ msg: "Breed correctly created" });
-  } catch (error) {
-    res.send({ msg: "Error during breed creation", error });
-  }
-});
+//     const dogCreated = await Dog.findAll({
+//         where: {
+//             name
+//         },
+//         include: Temperament
+//     });
+//     //console.log(dogCreated[0].dataValues.temperaments)
+//     res.send({ msg: "Breed correctly created" });
+//   } catch (error) {
+//     res.send({ msg: "Error during breed creation", error });
+//   }
+// });
 
-module.exports = { appDogs, getAPIDogs };
+// module.exports = { appDogs, getAPIDogs };
 

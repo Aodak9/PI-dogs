@@ -28,7 +28,7 @@
 }
 
 .dog{
-    background: #DAF7A6 ;
+    background: #009dff ;
     width: 25rem;
     height: 600px;
     /* border: solid 1px #845EC2; */
@@ -46,7 +46,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E7D40A;
+    background-color: black;
+    background-image: url(../../../media/dogcontainer-background.jpg);
     margin-left: 10%;
     margin-right: 10%;
    

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-//import './Pagination.css'
+import './Pagination.css'
 //import style from "./Pagination.css"
 
 //export default function Paginado({ dogsPerPage, allDogs, paginado }) {

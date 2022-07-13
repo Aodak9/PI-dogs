@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { getNameDogs } from '../../../redux/actions/index';
-//import './SearchMod.css'
+import './SearchBar.css'
 import { useHistory, Link } from 'react-router-dom';
 
 export default function SearchBar() {

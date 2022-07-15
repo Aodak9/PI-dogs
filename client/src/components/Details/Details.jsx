@@ -39,7 +39,7 @@ function Detalles(props) {
                                     <h3 className='description'>status</h3>
                                     <h5>Altura: {dog.height}</h5>
                                     <h5>Peso: {dog.weight}</h5>
-                                    <h5>Edad: {dog.life_Span}</h5>
+                                    <h5>Edad: {dog.life_span}</h5>
                                     <br></br>
                                     <h4 className='description'>Temperaments</h4>
                                     {dog.temperament?.map(i => (

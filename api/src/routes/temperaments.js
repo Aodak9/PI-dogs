@@ -1,9 +1,9 @@
-const appTemperaments = require("express").Router();
-const {Temperament} = require('../db')
+// const appTemperaments = require("express").Router();
+// const {Temperament} = require('../db')
 
-appTemperaments.get("/", async (req, res) => {
-    let temperaments = await Temperament.findAll()
-    res.send(temperaments)
-})
+// appTemperaments.get("/", async (req, res) => {
+//     let temperaments = await Temperament.findAll()
+//     res.send(temperaments)
+// })
 
-module.exports = {appTemperaments}
+// module.exports = {appTemperaments}

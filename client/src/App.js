@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import LandingPage from './components/Home/LandingPage/LandingPage'
 import Home from './components/Home/SearchBar/Home'
 import Details from './components/Details/Details'
+import CreateDog from './components/Form/CreateDog';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route path='/home' component={Home} />
-          {/* <Route path="/dogs" component={CreateDog} /> */}
+          <Route path="/dogs" component={CreateDog} />
           <Route path='/details/:id' component={Details} /> 
         </Switch>
       </div>

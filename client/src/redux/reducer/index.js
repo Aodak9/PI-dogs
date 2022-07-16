@@ -36,6 +36,7 @@ function orderByWeight(dogs, type) {
 }
 
 function filterByTemperaments(dogs, type) {
+    console.log(type, 'linea 15')
     if (type === "All Temperaments") {
         return dogs
     }

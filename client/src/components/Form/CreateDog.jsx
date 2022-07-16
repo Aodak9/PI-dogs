@@ -85,6 +85,7 @@ function CreateDog() {
                         <div className='input_field'>
                             <input className='input'
                                 placeholder="Nombre"
+                                maxLength={25}
                                 type="text"
                                 name="name"
                                 required="required"
@@ -95,6 +96,7 @@ function CreateDog() {
                         <div className='input_field'>
                             <input className='input'
                                 placeholder="height"
+                                maxLength={5}
                                 type="text"
                                 name="height"
                                 required="required"
@@ -105,6 +107,7 @@ function CreateDog() {
                         <div className='input_field'>
                             <input className='input'
                                 placeholder="weight"
+                                maxLength={5}
                                 type="text"
                                 name="weight"
                                 required="required"
@@ -125,7 +128,8 @@ function CreateDog() {
                         <div className='input_field'>
                             <input className='input'
                                 placeholder="Años de Vida"
-                                type="text"
+                                maxLength={3}
+                                type="number"
                                 name="years"
                                 required="required"
                                 value={input.years}

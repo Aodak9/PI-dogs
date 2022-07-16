@@ -32,14 +32,14 @@ export default function SearchBar() {
     return (
         <nav className='navBar'>
             <div className='home-Create'>
-                <Link to='/home' onClick={resetInput} className='homeText'><div>DOGS</div></Link>
-                <Link to='/dogs' className='createText'><div>CREAR DOG</div></Link>
+                <Link to='/home' onClick={resetInput} className='homeText'><div>HOME</div></Link>
+                <Link to='/dogs' className='createText'><div>CREATE DOG</div></Link>
             </div>
             <form onClick={(e) => handleSubmit(e)}>
                 <input
                     className='searchInput'
                     //type ='text'
-                    placeholder="Buscar tu raza..."
+                    placeholder="Search you're breed..."
                     onChange={(e) => handleInputChange(e)}
                     value={name || ''}
                 />

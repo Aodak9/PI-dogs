@@ -26,7 +26,6 @@ export default function Home() {
     const currentDogs = filterDogs.slice(indexOfFirstDog, indexOfLastDog)
     //console.log(currentDogs, "linea 26")
 
-
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
@@ -90,7 +89,7 @@ export default function Home() {
         <div className='homeContainer'>
             <div className='dogContainer'>
 
-                <h1>LAS MEJORES RAZAS DE PERROS</h1>
+                <h1>THE BEST BREEDS OF DOGS ARE HERE!!</h1>
                 <button onClick={e => { handleClick(e) }}>
                     Cargar Dogs
                 </button>
@@ -177,6 +176,13 @@ export default function Home() {
                         );
                     })}
                 </div>
+                    <div><Paginado
+                    dogsPerPage={dogsPerPage}
+                    //totalPost={states.currentInfo.length}
+                    allDogs={filterDogs.length}
+                    paginado={paginado}
+                    />
+                    </div>
             </div>
         </div >
 

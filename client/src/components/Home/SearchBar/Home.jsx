@@ -60,6 +60,7 @@ export default function Home() {
         //console.log(e.targe.value)
         setCurrentPage(1);
     }
+    
 
     function handleFilterCreated(e) {
         dispatch(filterCreated(e.target.value))
@@ -88,7 +89,7 @@ export default function Home() {
     return (
         <div className='homeContainer'>
             <div className='dogContainer'>
-
+                <div className='divNav'>
                 <h1>THE BEST BREEDS OF DOGS ARE HERE!!</h1>
                 <button onClick={e => { handleClick(e) }}>
                     Cargar Dogs
@@ -108,6 +109,7 @@ export default function Home() {
                         <option value='high'>Descendente</option>
                         <option value='less'>Ascendente</option>
                     </select>
+                    
 
                     {/*<select name="temperament" value={state.temperament} onChange={(e) => handleChange(e)} className={style.fTemp}>
                         <option value="temperament">Por Temperamento</option>
@@ -152,6 +154,7 @@ export default function Home() {
                     allDogs={filterDogs.length}
                     paginado={paginado}
                 />
+                </div>
                 <SearchBar />;
                 <div className='dogResults'>
                     {currentDogs?.map((breed) => {
@@ -160,7 +163,7 @@ export default function Home() {
                                 <div className='dog'>
                                     <div className='dogResults'>
                                         <Fragment >
-                                            <Link to={"/details/" + breed.id}>
+                                            <Link to={"/details/" + breed.id} style={{textDecoration:'none'}}>
                                                 <Card
                                                     name={breed.name}
                                                     image={breed.image}

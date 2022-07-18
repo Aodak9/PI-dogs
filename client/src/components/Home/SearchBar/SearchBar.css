@@ -15,7 +15,7 @@
         align-items: center;
         height: 56px;
         width: 100%; 
-        background-color: #031327;
+        background-color: #E3E2DD;
     }
     
     .input{
@@ -31,7 +31,6 @@
         width: 600px;
         position: relative;
         left: 80px;
-        
     }
     
     .searchIcon{
@@ -60,24 +59,40 @@
     }
     
     .homeText{
-        color: white;
+        color: black;
         text-decoration: none;
-        height: 35px;
-        
+        height: 25px;
+        position: relative;
+        cursor: pointer;
+        box-sizing: border-box;
+        border: 2px rgb(0, 0, 0) solid;
+        transition: box-shadow 0.15s ease-in,
+        border 0.15s step-end;
+        border-radius: 10px;
+        width: 90px;
+        padding: 0px 14px;
     }
     
     .homeText:hover{
-        background-color: rgb(194, 82, 82);
-        border-radius: 3px;
+        border: 1px rgba(255, 255, 255, 0.692) solid;
+        box-shadow: 0px 0px 12px 1px rgb(218, 165, 32);
     }
     
     .createText{
-        color: white;
+        color: black;
         text-decoration: none;
-        height: 35px;
+        height: 25px;
+        position: relative;
+        cursor: pointer;
+        border: 2px rgb(0, 0, 0) solid;
+        transition: box-shadow 0.15s ease-in,
+        border 0.15s step-end;
+        border-radius: 10px;
+        width: 150px;
+        padding: 0px 13px;
     }
     
     .createText:hover{
-        background-color: rgb(194, 82, 82);
-        border-radius: 3px;
+        border: 1px rgba(255, 255, 255, 0.692) solid;
+    box-shadow: 0px 0px 12px 1px rgb(218, 165, 32);
     }

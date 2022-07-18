@@ -47,22 +47,22 @@ video {
     box-sizing: border-box;
     border-radius: 0.6rem;
     align-self: center;
-    font-size: 17px;
-    font-weight: 400;
+    font-size:24px;
+    font-weight:bold;
     margin: 20px;
     padding: 20px 40px;
     text-align: center;
-    color: aliceblue;
+    color: black;
     cursor: pointer;
 }
 
 .btn {
-    border: solid 2px rgb(205, 169, 58);
+    border: solid 4px rgb(205, 169, 58);
     margin-top: 2em;
+    transition: 0.4s ease-in-out;
 }
 
 .btn:hover {
-    transition: 0.4s ease-in-out;
     background: rgb(205, 169, 58);
     color: rgba(0, 0, 1, .3);
 }

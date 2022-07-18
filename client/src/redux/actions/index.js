@@ -115,17 +115,19 @@ export function FilterWeight(payload) {
     }
 }
 
-export function filterTemp(razaActual, temperamento) {
-    let filtro = [...razaActual];
-    filtro = filtro.filter(actual => {
-        if (actual.temperaments) {
-            let razaTemp = actual.temperaments.split(', ')
-            return razaTemp.includes(temperamento);
-        } else {
-            return false
-        }
-    })
-    return function (dispatch) {
-        dispatch({ type: SORT_RAZA, payload: filtro })
-    }
-}
+
+
+// export function filterTemp(razaActual, temperamento) {
+//     let filtro = [...razaActual];
+//     filtro = filtro.filter(actual => {
+//         if (actual.temperaments) {
+//             let razaTemp = actual.temperaments.split(', ')
+//             return razaTemp.includes(temperamento);
+//         } else {
+//             return false
+//         }
+//     })
+//     return function (dispatch) {
+//         dispatch({ type: SORT_RAZA, payload: filtro })
+//     }
+// }

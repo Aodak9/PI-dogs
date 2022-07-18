@@ -35,6 +35,7 @@ function orderByWeight(dogs, type) {
     return temp;
 }
 
+
 function filterByTemperaments(dogs, type) {
     console.log(type, 'linea 15')
     if (type === "All Temperaments") {
@@ -127,7 +128,7 @@ function rootReducer(state = initialState, action) {
                 filterDogs: orderByWeight(state.filterDogs, action.payload),
             }
         }
-
+        
         default:
             return state;
     }

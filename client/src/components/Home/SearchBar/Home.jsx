@@ -89,6 +89,7 @@ export default function Home() {
     return (
         <div className='homeContainer'>
             <div className='dogContainer'>
+                <div className='backgroundNavi'>
                 <div className='divNav'>
                 <h1>THE BEST BREEDS OF DOGS ARE HERE!!</h1>
                 <button onClick={e => { handleClick(e) }}>
@@ -147,7 +148,7 @@ export default function Home() {
                     </select>*/}
 
 
-                </div>
+                
                 <Paginado
                     dogsPerPage={dogsPerPage}
                     //totalPost={states.currentInfo.length}
@@ -155,9 +156,12 @@ export default function Home() {
                     paginado={paginado}
                 />
                 </div>
+                </div>
+                </div>
                 <SearchBar />;
                 <div className='dogResults'>
                     {currentDogs?.map((breed) => {
+                        console.log(breed.temperament)
                         return (
                             <div className='fullresultsContainer'>
                                 <div className='dog'>

@@ -1,3 +1,5 @@
+
+
 /* .background {
     background-color: #f3dbc3;
     min-height: 100vh;
@@ -38,15 +40,21 @@
 }
 
 .divNav{
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
     justify-content: center;
-    background-color:red;
     width:100%;
 }
 
-
+.backgroundNavi{
+    background-image: url('../../../media/steps.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;
+    text-align: center;
+    width: 100vw;
+}
 
 .dogContainer{
     display: flex;
@@ -59,7 +67,7 @@
     background-attachment: fixed;
     margin-left: 10%;
     margin-right: 10%;
-    color: #f7f7f7;
+    color: black;
     width: 100%;
     
 }

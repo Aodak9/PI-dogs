@@ -1,9 +1,9 @@
 .pagination {
     display: flex;
-    margin-top: 20;
-    margin-bottom: 20px;
+    padding: 10px;
     border: 1px solid #222222;
     cursor: pointer;
+    justify-content: center;
   }
   
   

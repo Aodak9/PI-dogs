@@ -3,9 +3,11 @@ import './Card.css'
 
 export default function Card({ name, image, temperament, weight }) {
     React.useEffect(()=>{
-        console.log(temperament.split(', '))
+        // console.log(temperament)
     },[])
-    let temp = temperament.split(', ')
+    let temp 
+    temp = temperament?temperament.split(', '):undefined
+    
 
     
     return (
@@ -19,7 +21,7 @@ export default function Card({ name, image, temperament, weight }) {
                     </div>
                     <div className='temperamento'>
                         {
-                            temp?temp.map(e=> <h5 className="tm">{e}</h5>):<h1>not found</h1>
+                            temp?temp.map(e=> <h5 className="tm">{e}</h5>):<h3></h3>
                         }
                     </div>
                 </div>

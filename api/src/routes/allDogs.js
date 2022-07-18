@@ -92,11 +92,14 @@ const unicos = [];
 router.get('/temperament', async (req, res) => {
     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`)
     const tempsInfo = await temperamentsApi.data.map(breed => breed.temperament)
-    dbtemps = tempsInfo.toString().split(', ');
-
+    dbtemps = tempsInfo.toString().split(',');
+    
+    console.log(dbtemps)
     var unicos = dbtemps.filter((item, index) => {
         return dbtemps.indexOf(item) === index
     })
+    console.log(unicos)
+    dbtemps = dbtemps.filter((e)=> e.replace(/\s+/g, '') !== '')
 
 
     unicos.forEach(breed => {

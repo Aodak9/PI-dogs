@@ -7,7 +7,8 @@
     height: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #E7D40A;
+    background: rgb(33,31,61);
+    background: radial-gradient(circle, rgba(33,31,61,1) 0%, rgba(73,73,163,1) 60%, rgba(0,212,255,1) 100%);
 }
 
 .detailContainer{
@@ -16,10 +17,9 @@
     justify-content: center;
     flex-direction: column;
     width: 65%;
-    border: 1px solid #031327;
+    border: 1px solid #FFFDD0;
     border-radius: 10px;
-    background-color: #DAF7A6
-    
+    background-color: #2C2C2B;
 }
 
 .poster{
@@ -34,13 +34,13 @@
 
 .title{
     text-align: center;
-    color: #222222;
+    color: #FFFDD0;
 }
 
 .description{
     width: 95%;
     text-align: justify;
-    color: #222222;
+    color: #FFFDD0;
 }
 
 .extraInfo{
@@ -75,5 +75,5 @@
 }
 
 .infoContainer h4{
-    color: #222222;
+    color: #FFFDD0;
 }

@@ -118,7 +118,7 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_TEMPERAMENTS: {
             return {
                 ...state,
-                filterDogs: filterByTemperaments(state.filterDogs, action.payload)
+                filterDogs: filterByTemperaments(state.dogs, action.payload)
             }
         }
 

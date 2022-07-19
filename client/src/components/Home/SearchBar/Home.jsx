@@ -93,22 +93,22 @@ export default function Home() {
                 <div className='divNav'>
                 <h1>THE BEST BREEDS OF DOGS ARE HERE!!</h1>
                 <button onClick={e => { handleClick(e) }}>
-                    Cargar Dogs
+                    Load Dogs
                 </button>
                 <div>
                     <select className={style.fOrder} onChange={e => handleOrder(e)} >
-                        <option value='Asc'>Ascendente</option>
-                        <option value='Desc'>Descendente</option>
+                        <option value='Asc'>Ascendant</option>
+                        <option value='Desc'>Descending</option>
                     </select>
                     <select className={style.fOrder} onChange={e => handleFilterCreated(e)}>
-                        <option value='all'>Todos</option>
-                        <option value='created'>Creados</option>
-                        <option value='api'>Existentes</option>
+                        <option value='all'>All</option>
+                        <option value='created'>Created</option>
+                        <option value='api'>Existent</option>
                     </select>
                     <select className={style.fOrder} onChange={e => handleFilterWeight(e)}>
-                        <option value=''>Ordenar Peso</option>
-                        <option value='high'>Descendente</option>
-                        <option value='less'>Ascendente</option>
+                        <option value=''>Order Weight</option>
+                        <option value='high'>Descending</option>
+                        <option value='less'>Ascendant</option>
                     </select>
                     
 

@@ -79,12 +79,12 @@ function CreateDog() {
             <section className='titleForm'>
                 <div>
                     <Link to='/home'><button><h3>Back</h3></button></Link>
-                    <h1>Crea tu Raza de Dog</h1>
+                    <h1>Create your dog breed</h1>
                     <form onSubmit={(e) => handleSubmit(e)} className='formCreate'>
 
                         <div className='input_field'>
                             <input className='input'
-                                placeholder="Nombre"
+                                placeholder="Name"
                                 maxLength={25}
                                 type="text"
                                 name="name"
@@ -117,8 +117,8 @@ function CreateDog() {
                         </div>
                         <div className='input_field'>
                             <input className='input'
-                                placeholder="Imagen"
-                                type="text"
+                                placeholder="Image: URL.jpg"
+                                type="url"
                                 name="image"
                                 required="required"
                                 value={input.image}
@@ -127,7 +127,7 @@ function CreateDog() {
                         </div>
                         <div className='input_field'>
                             <input className='input'
-                                placeholder="Años de Vida"
+                                placeholder="life span"
                                 maxLength={3}
                                 type="number"
                                 name="years"
@@ -138,12 +138,12 @@ function CreateDog() {
                         </div>
                         <div>
                             <select name="sexo" value={input.sexo} onChange={e => handleChange(e)} required>
-                                <option value="">Sexo</option>
-                                <option value="Hembra">Hembra</option>
-                                <option value="Macho">Macho</option>
+                                <option value="">Sex</option>
+                                <option value="Hembra">Female</option>
+                                <option value="Macho">Male</option>
                             </select>
                         </div>
-                        <form>Temperamento</form>
+                        <form>Temperament</form>
                         <div className='platforms_subContainer'>
                             {
                                 Temps.map(i => {
@@ -172,7 +172,7 @@ function CreateDog() {
                                 </ul>
                             </select>*/}
 
-                            <button type='submit'>Crear Dog</button>
+                            <button type='submit'>Create Dog</button>
                         </div>
                         {/*{input.temperaments.map(el =>
                             <div className='divOcc'>

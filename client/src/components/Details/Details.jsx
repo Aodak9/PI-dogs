@@ -36,10 +36,10 @@ function Detalles(props) {
                                 <div>
                                     <img className="detailContainer" src={dog?.image} alt="Not found"></img>
                                     <br></br>
-                                    <h3 className='description'>status</h3>
-                                    <h5>Altura: {dog.height}</h5>
-                                    <h5>Peso: {dog.weight}</h5>
-                                    <h5>Edad: {dog.life_span}</h5>
+                                    <h3 className='description'>Status</h3>
+                                    <h5>Height: {dog.height}</h5>
+                                    <h5>Weight: {dog.weight}</h5>
+                                    <h5>life Span: {dog.life_span}</h5>
                                     <br></br>
                                     <h4 className='description'>Temperaments</h4>
                                     {dog.temperament?.map(i => (
@@ -48,7 +48,7 @@ function Detalles(props) {
                                 </div>
                             </div>
                         </div> :
-                        <div>Dog no existe</div>
+                        <div>Dog doesn't exist</div>
                 }
                 <Link to='/home'>
                     <button className='noBold'><h3>Back</h3></button>

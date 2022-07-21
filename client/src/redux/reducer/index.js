@@ -31,7 +31,7 @@ function orderByWeight(dogs, type) {
             return 0;
         })
     }
-
+    
     return temp;
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { postDog, getTemperaments } from '../../redux/actions/index';
+import { postDog, getTemperaments, getDogs} from '../../redux/actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './CreateDog.css'
 import axios from "axios";
@@ -15,7 +15,7 @@ function CreateDog() {
         height: '',
         weight: '',
         image: '',
-        years: '',
+        life_span: '',
         sexo: '',
         temperament: []
     });
@@ -58,12 +58,13 @@ function CreateDog() {
                 alert("Hubo un error en el Posteo")
             })
         alert("Dog Creado")
+        dispatch(getDogs())
         setInput({
             name: '',
             height: '',
             weight: '',
             image: '',
-            years: '',
+            life_span: '',
             sexo: '',
             temperament: [],
         })
@@ -118,7 +119,7 @@ function CreateDog() {
                         <div className='input_field'>
                             <input className='input'
                                 placeholder="Image: URL.jpg"
-                                type="url"
+                                type="text"
                                 name="image"
                                 required="required"
                                 value={input.image}
@@ -130,7 +131,7 @@ function CreateDog() {
                                 placeholder="life span"
                                 maxLength={3}
                                 type="number"
-                                name="years"
+                                name="life_span"
                                 required="required"
                                 value={input.years}
                                 onChange={e => handleChange(e)}

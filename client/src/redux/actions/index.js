@@ -6,6 +6,7 @@ export const GET_NAME_DOGS = "GET_NAME_DOGS";
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
 export const FILTER_BY_TEMPERAMENTS = "FILTER_BY_TEMPERAMENTS";
 export const FILTER_BY_WEIGHT = "FILTER_BY_WEIGHT";
+export const FILTER_BY_HEIGHT = "FILTER_BY_HEIGHT";
 export const DETAILS = "DETAILS";
 export const SORT_RAZA = "SORT_RAZA";
 export const GET_DOGS = "GET_DOGS";
@@ -16,23 +17,26 @@ export function removegetDogsLoaded() {
 
 }
 export function getDogs() {
-    return async function (dispatch) {
-        const json = await axios.get('http://localhost:3001/dogs')
-        console.log(json, "linea 9")
-        return dispatch({
-            type: DOGS,
-            payload: json.data
-        })
+    return function (dispatch) {
+         axios.get('http://localhost:3001/dogs').then(res =>{
+            dispatch({
+                 type: DOGS,
+                 payload: res.data
+             })
+             console.log(res.data, "linea 9")
+         })
     };
 };
 
 export function getNameDogs(name) {
-    return async function (dispatch) {
+    return  function (dispatch) {
         try {
-            var json = await axios.get('http://localhost:3001/dogs?name=' + name)
-            return dispatch({
-                type: "GET_NAME_DOGS",
-                payload: json.data
+            axios.get('http://localhost:3001/dogs?name=' + name).then( res => { 
+                dispatch({
+                    type: "GET_NAME_DOGS",
+                    payload: res.data
+
+            })
             })
         } catch (error) {
             console.log(error)
@@ -114,20 +118,3 @@ export function FilterWeight(payload) {
         payload,
     }
 }
-
-
-
-// export function filterTemp(razaActual, temperamento) {
-//     let filtro = [...razaActual];
-//     filtro = filtro.filter(actual => {
-//         if (actual.temperaments) {
-//             let razaTemp = actual.temperaments.split(', ')
-//             return razaTemp.includes(temperamento);
-//         } else {
-//             return false
-//         }
-//     })
-//     return function (dispatch) {
-//         dispatch({ type: SORT_RAZA, payload: filtro })
-//     }
-// }

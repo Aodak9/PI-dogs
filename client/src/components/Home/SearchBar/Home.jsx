@@ -126,6 +126,7 @@ export default function Home() {
 
 
 
+                        
                     <select className={style.fOrder} onChange={e => handleFilterTemperaments(e)}>
                         <option value='All Temperaments'>All Temperaments</option>
                         {
@@ -161,9 +162,8 @@ export default function Home() {
                 <SearchBar />;
                 <div className='dogResults'>
                     {currentDogs?.map((breed) => {
-                        console.log(breed.temperament)
                         return (
-                            <div className='fullresultsContainer'>
+                            <div className='fullresultsContainer' key={breed.id}>
                                 <div className='dog'>
                                     <div className='dogResults'>
                                         <Fragment >
@@ -174,7 +174,7 @@ export default function Home() {
                                                     temperament={breed.temperament}
                                                     weight={breed.weight}
                                                     key={breed.id}
-                                                />
+                                                /> 
                                             </Link>
                                         </Fragment>
                                     </div>
@@ -189,7 +189,7 @@ export default function Home() {
                     allDogs={filterDogs.length}
                     paginado={paginado}
                     />
-                    </div>
+                    </div> 
             </div>
         </div >
 

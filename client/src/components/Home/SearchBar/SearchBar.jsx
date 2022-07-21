@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { getNameDogs } from '../../../redux/actions/index';
+import { getDogs, getNameDogs } from '../../../redux/actions/index';
 import './SearchBar.css'
 import { useHistory, Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export default function SearchBar() {
     const [name, setName] = useState('');
     const dispatch = useDispatch()
     const history = useHistory();
-
+console.log(history)
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -26,7 +26,8 @@ export default function SearchBar() {
     }
 
     const resetInput = () => {
-        setName('')
+        //setName('')
+        dispatch(getDogs())
     }
 
     return (

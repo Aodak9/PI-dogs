@@ -140,50 +140,6 @@ router.post('/dogs', async function (req, res) {
 
 })
 
-
-
-// router.post('/dogs', async function (req, res) {
-//     try{
-//     const { name, image, height, weight, years, temperament, sexo } = req.body;
-//     console.log(temperament)
-//     const newDog = await Dog.create({
-//         name,
-//         image,
-//         height,
-//         weight,
-//         years,
-//         sexo,
-//     })
-//     temperament.forEach(e => {Temperament.findOrCreate({where: {name: e.toLowerCase()}})})
-//     let tempsAddedToNewDog = await Temperament.findAll({where: {name: temperament}})
-//     newDog.addTemperament(tempsAddedToNewDog);
-//     return res.status(201).send("Dog created successfully")
-// }catch (error){
-//     res.status(404).send("Error while creating Dog")
-// }
-//     })
-//     try {
-//         let newDog = await Dog.create({
-//             //id: uuidv4(),
-//             name,
-//             image,
-//             height,
-//             weight,
-//             years,
-//             sexo,
-//             //createdInDb,
-//         })
-//         //console.log(newDog)
-
-//         let result = await newDog.addTemperament(temperament)
-//         res.status(200).send(result, "successfully created")
-
-//     } catch (error) {
-//         res.status(500).send(error)
-//     }
-
-// })
-
 router.get('/dogs/:id', async (req, res) => {
 
     const { id } = req.params;

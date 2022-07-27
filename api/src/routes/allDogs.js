@@ -35,6 +35,7 @@ const getApiInfo = async () => {
             temperament: breed.temperament,
             life_span: breed.life_span,
             sexo: breed.sexo,
+            bred_for: breed.bred_for
         }
     });
     return apiInfo;

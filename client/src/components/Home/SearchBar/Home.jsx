@@ -173,6 +173,7 @@ export default function Home() {
                                                     image={breed.image}
                                                     temperament={breed.temperament}
                                                     weight={breed.weight}
+                                                    bred_for={breed.bred_for}
                                                     key={breed.id}
                                                 /> 
                                             </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import './Card.css'
 
-export default function Card({ name, image, temperament, weight }) {
+export default function Card({ name, image, temperament, weight, bred_for }) {
     
     let temp =[];
     if(typeof temperament === 'object'){
@@ -22,6 +22,7 @@ export default function Card({ name, image, temperament, weight }) {
                     <div className='imgPosterWrap'>
                         <img className='imgPoster' src={image} alt="img not found" width="400px" height="450px" />
                     </div>
+                    <h5>Bred_for: {bred_for}</h5>
                     <div>
                         {                                                     
                             temp??temp.map((e, i)=> <h5 key={i}><span>{e}</span></h5>)

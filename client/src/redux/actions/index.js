@@ -17,8 +17,8 @@ export function removegetDogsLoaded() {
 
 }
 export function getDogs() {
-    return function (dispatch) {
-         axios.get('http://localhost:3001/dogs').then(res =>{
+    return function async (dispatch) {
+         axios.get('/dogs').then(res =>{
             dispatch({
                  type: DOGS,
                  payload: res.data
@@ -31,7 +31,7 @@ export function getDogs() {
 export function getNameDogs(name) {
     return  function (dispatch) {
         try {
-            axios.get('http://localhost:3001/dogs?name=' + name).then( res => { 
+            axios.get('/dogs?name=' + name).then( res => { 
                 dispatch({
                     type: "GET_NAME_DOGS",
                     payload: res.data
@@ -47,7 +47,7 @@ export function getNameDogs(name) {
 export function getDetails(id) {
     return async function (dispatch) {
         try {
-            const res = await axios.get(`http://localhost:3001/dogs/${id}`);
+            const res = await axios.get(`/dogs/${id}`);
             return dispatch({
                 type: DETAILS,
                 payload: res.data
@@ -60,7 +60,7 @@ export function getDetails(id) {
 
 export function getTemperaments() {
     return async function (dispatch) {
-        const info = await axios.get("http://localhost:3001/temperament")
+        const info = await axios.get("/temperament")
         console.log(info, "Linea 10")
         return dispatch({
             type: GET_TEMPERAMENTS,
